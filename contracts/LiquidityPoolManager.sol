@@ -570,7 +570,7 @@ contract LiquidityPoolManager is Ownable, ReentrancyGuard {
      * that is not the case. If any additional RADI tokens have been transferred to this
      * this contract, they will be marked as unallocated and prepared for distribution.
      */
-    function vestAllocation() external nonReentrant {
+    function vestAllocation() external nonReentrant onlyOwner {
         require(
             unallocatedRadi == 0,
             "LPM::vestAllocation: Old RADI is unallocated. Call distributeTokens()."

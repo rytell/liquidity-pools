@@ -1,5 +1,5 @@
 {
-  "name": "liquidity-pools",
+  "name": "@rytell/liquidity-pools",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,8 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.4",
     "@nomiclabs/hardhat-etherscan": "^2.1.8",
@@ -43,6 +41,20 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.4.2",
-    "@rytell/exchange-contracts": "^1.0.1"
-  }
+    "@rytell/exchange-contracts": "^1.0.1",
+    "@rytell/sdk": "^1.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:rytell/liquidity-pools.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "artifacts",
+    "contracts"
+  ],
+  "author": "Pedro Medina <pedromedina190@gmail.com>",
+  "license": "MIT"
 }
