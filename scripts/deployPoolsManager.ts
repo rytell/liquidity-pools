@@ -28,7 +28,7 @@ const RADI = {
   ),
   [ChainId.AVALANCHE]: new Token(
     ChainId.AVALANCHE,
-    "0x0000000000000000000000000000000000000000",
+    "0x81d8B7e80b5823Ebb93D5019dde5096E03292F12",
     18,
     "RADI",
     "RADI"
@@ -45,7 +45,7 @@ const STABLE_TOKEN = {
   ),
   [ChainId.AVALANCHE]: new Token(
     ChainId.AVALANCHE,
-    "0x0000000000000000000000000000000000000000",
+    "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
     18,
     "USDT",
     "USDT"
@@ -54,7 +54,7 @@ const STABLE_TOKEN = {
 
 const TREASURY_VESTER = {
   [ChainId.FUJI]: "0xe5e970FE3a90F314977a9Fd41e349486a9e8c4fe",
-  [ChainId.AVALANCHE]: "0x0000000000000000000000000000000000000000",
+  [ChainId.AVALANCHE]: "0x8FED8324cb0fE09dC5f99B1eCD4fF09F2702266e",
 };
 
 async function main() {
@@ -63,10 +63,10 @@ async function main() {
     "LiquidityPoolManager"
   );
   const liquidityPoolManager = await LiquidityPoolManager.deploy(
-    WAVAX[ChainId.FUJI].address,
-    RADI[ChainId.FUJI].address,
-    STABLE_TOKEN[ChainId.FUJI].address,
-    TREASURY_VESTER[ChainId.FUJI]
+    WAVAX[ChainId.AVALANCHE].address,
+    RADI[ChainId.AVALANCHE].address,
+    STABLE_TOKEN[ChainId.AVALANCHE].address,
+    TREASURY_VESTER[ChainId.AVALANCHE]
   );
 
   await liquidityPoolManager.deployed();

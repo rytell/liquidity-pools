@@ -12,7 +12,7 @@ async function main() {
     ),
     [ChainId.AVALANCHE]: new Token(
       ChainId.AVALANCHE,
-      "0x0000000000000000000000000000000000000000",
+      "0x81d8B7e80b5823Ebb93D5019dde5096E03292F12",
       18,
       "RADI",
       "RADI"
@@ -22,7 +22,7 @@ async function main() {
   // We get the contract to deploy
   const TreasuryVester = await ethers.getContractFactory("TreasuryVester");
   const treasuryVester = await TreasuryVester.deploy(
-    RADI[ChainId.FUJI].address
+    RADI[ChainId.AVALANCHE].address
   );
 
   await treasuryVester.deployed();

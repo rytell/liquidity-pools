@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.4.2",
+    "@poanet/solidity-flattener": "^3.0.6",
     "@rytell/exchange-contracts": "^1.0.1",
     "@rytell/sdk": "^1.0.3"
   },
