@@ -17,56 +17,7 @@ contract TreasuryVester is Ownable, ReentrancyGuard {
     address public radi;
     address public recipient;
 
-    // Amount to distribute at each interval in wei
-    uint256[] public vestingAmounts = [
-        777600000000000000000000,
-        518400000000000000000000,
-        440640000000000000000000,
-        349920000000000000000000,
-        259200000000000000000000,
-        246240000000000000000000,
-        233280000000000000000000,
-        220320000000000000000000,
-        207360000000000000000000,
-        194400000000000000000000,
-        181440000000000000000000,
-        168480000000000000000000,
-        155520000000000000000000,
-        142560000000000000000000,
-        129600000000000000000000,
-        116640000000000000000000,
-        103680000000000000000000,
-        90720000000000000000000,
-        77760000000000000000000,
-        64800000000000000000000,
-        51840000000000000000000,
-        38880000000000000000000,
-        32400000000000000000000,
-        25920000000000000000000,
-        23328000000000000000000,
-        20736000000000000000000,
-        18144000000000000000000,
-        15552000000000000000000,
-        12960000000000000000000,
-        10368000000000000000000
-    ];
-
-    // Number of distribution intervals before the distribution amount halves
-    // Halving should occur once every month
-
-    // next period
-    uint256 public halvingPeriod = 30;
-
-    // until 29
-    uint256 public currentMonth = 0;
-
-    // Countdown till the nest halving in days
-    uint256 public nextSlash;
-
     bool public vestingEnabled;
-
-    // Timestamp of latest distribution
-    uint256 public lastUpdate;
 
     // Amount of RADI required to start distributing denominated in wei
     // Should be 1 RADI
@@ -83,9 +34,6 @@ contract TreasuryVester is Ownable, ReentrancyGuard {
 
     constructor(address radi_) {
         radi = radi_;
-
-        lastUpdate = 0;
-        nextSlash = halvingPeriod;
     }
 
     /**
@@ -136,21 +84,11 @@ contract TreasuryVester is Ownable, ReentrancyGuard {
             "TreasuryVester::claim: only recipient can claim"
         );
 
-        // If we've finished a halving period, reduce the amount
-        if (nextSlash == 0) {
-            nextSlash = halvingPeriod - 1;
-            currentMonth = currentMonth + 1;
-        } else {
-            nextSlash = nextSlash.sub(1);
-        }
-
-        // Update the timelock
-        lastUpdate = block.timestamp;
-
+        uint256 radiAvailable = IERC20(radi).balanceOf(address(this));
         // Distribute the tokens
-        IERC20(radi).safeTransfer(recipient, vestingAmounts[currentMonth]);
-        emit TokensVested(vestingAmounts[currentMonth], recipient);
+        IERC20(radi).safeTransfer(recipient, radiAvailable);
+        emit TokensVested(radiAvailable, recipient);
 
-        return vestingAmounts[currentMonth];
+        return radiAvailable;
     }
 }
