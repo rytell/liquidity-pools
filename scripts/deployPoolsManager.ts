@@ -21,14 +21,14 @@ const WAVAX = {
 const RADI = {
   [ChainId.FUJI]: new Token(
     ChainId.FUJI,
-    "0xCcA36c23E977d6c2382dF43e930BC8dE9daC897E",
+    "0x600615234c0a427834A4344D10fEaCA374B2dfCB",
     18,
     "RADI",
     "RADI"
   ),
   [ChainId.AVALANCHE]: new Token(
     ChainId.AVALANCHE,
-    "0x81d8B7e80b5823Ebb93D5019dde5096E03292F12",
+    "0x9c5bBb5169B66773167d86818b3e149A4c7e1d1A",
     18,
     "RADI",
     "RADI"
@@ -53,8 +53,8 @@ const STABLE_TOKEN = {
 };
 
 const TREASURY_VESTER = {
-  [ChainId.FUJI]: "0xe5e970FE3a90F314977a9Fd41e349486a9e8c4fe",
-  [ChainId.AVALANCHE]: "0x8FED8324cb0fE09dC5f99B1eCD4fF09F2702266e",
+  [ChainId.FUJI]: "0xe3f486d0401fC946aEB95539fACedf0016A342BB",
+  [ChainId.AVALANCHE]: "0x5720c005127AbB4Cad729B255C652BeD316cEd7e",
 };
 
 async function main() {

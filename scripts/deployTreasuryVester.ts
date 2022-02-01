@@ -5,14 +5,14 @@ async function main() {
   const RADI = {
     [ChainId.FUJI]: new Token(
       ChainId.FUJI,
-      "0xCcA36c23E977d6c2382dF43e930BC8dE9daC897E",
+      "0x600615234c0a427834A4344D10fEaCA374B2dfCB",
       18,
       "RADI",
       "RADI"
     ),
     [ChainId.AVALANCHE]: new Token(
       ChainId.AVALANCHE,
-      "0x81d8B7e80b5823Ebb93D5019dde5096E03292F12",
+      "0x9c5bBb5169B66773167d86818b3e149A4c7e1d1A",
       18,
       "RADI",
       "RADI"
